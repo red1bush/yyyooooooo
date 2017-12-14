@@ -5,10 +5,11 @@ class ApplicationController < ActionController::Base
 
 
 # Autoriser le champ fullname pour l'inscription (Y.B)
+# Autoriser l'avatar (RB)
 protected
 def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :avatar])
 
 
 end

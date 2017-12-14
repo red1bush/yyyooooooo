@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Devenez prestataire Youyoo
+    </div>
+
+<div class="panel-body">
+    <div class="container">
+        <%= form_for @annonces, html: {multipart: true} do |f| %>
+
+        <div class="row">
+                    <div class="form-group">
+                        <label>Donnez un nom au service</label>
+                        <%= f.text_field :name, placeholder: "Titre de l'annonce", class: "form-control" %>
+                    </div>
+                </div>
+                
+            <div class="row">
+                    <div class="form-group">
+                        <label>Résumé</label>
+                        <%= f.text_area :description, rows:4, placeholder: "Décrivez ce que vous faites, le décor, l'ambiance, etc...",
+                        class: "form-control" %>
+                    </div>
+                </div>
+                
+            <div class="row">
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <%= f.text_field :address, placeholder: "Où etes-vous situé?", class: "form-control" %>
+                    </div>
+                </div>
+                
+           <div class="row">
+ 
+       <div class="col-md-4">
+ 
+           <div class="form-group">
+ 
+                 <span class="btn btn-default btn-file">
+ 
+                 <i class = "fa fa-cloud-upload fa-lg"></i> Téléchargez vos photos !
+ 
+                 <%= file_field_tag "images[]", type: :file, multiple: true %>
+ 
+                 </span>
+ 
+           </div>
+ 
+       </div>
+       <font color="#555555" face="Arial, Helvetica Neue, Helvetica, Tahoma, sans-serif"><</font>div id="photos"><%= render 'photos/list' %></div>  
+       
+
+ </div>
+
+                
+            <div class="actions">
+                      <%= f.submit "Je valide mon annonce", class: "btn btn-primary"%>
+            </div>
+            <% end %>
+            
+        </div>
+
+    </div>
+</div>

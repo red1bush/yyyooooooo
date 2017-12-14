@@ -1,0 +1,42 @@
+<div class="row">
+ 
+      <div class="col-md-3">
+ 
+            <ul class="sidebar-list">
+ 
+          <li class="sidebar-item"><%= link_to "Mes annonces", annonces_path, class: "sidebar-link active" %></li>
+ 
+            </ul>
+ 
+       </div>
+ 
+       <div class="col-md-9">
+           <div class="panel panel-default">
+              <div class="panel-heading"> Mes Prestations </div>
+                    <div class="panel-body">
+                      <% @annonces.each do |annonce| %>
+                           <div class="row">
+                               <div class="col-md-2">
+                          <%= image_tag annonce.photos[0].image.url(:thumb) if annonce.photos.length > 0 %> 
+                                     </div>
+                                   
+                                      <div class="col-md-3 right">
+                                       <%= link_to "Mettre à jour", edit_annonce_path(annonce), class: "btn btn-primary" %>
+
+
+                                 </div>
+                            </div>
+                        
+                        <hr>
+ 
+                   <% end %>
+                   
+                   
+                                      
+               </div>
+ 
+           </div>
+ 
+     </div>
+   </div>
+

@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209150129) do
+ActiveRecord::Schema.define(version: 20171213180526) do
+
+  create_table "annonces", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "address"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_annonces_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "annonce_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["annonce_id"], name: "index_photos_on_annonce_id"
+  end
+
+  create_table "presta", force: :cascade do |t|
+    t.string "typedepresta"
+    t.text "bio"
+    t.text "link"
+    t.string "city"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +57,10 @@ ActiveRecord::Schema.define(version: 20171209150129) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "fullname"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

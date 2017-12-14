@@ -52,6 +52,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+
+     <li>
+     
+     <%= link_to new_annonce_path do %>
+     
+     <i class="fa fa-home fa-lg"></i> Devenez Prestataire
+     
+     <% end %>
+     
+     </li>
             <!-- Pour que 'inscritpion ne s'affiche pas si t'es connecter igo -->
             <% if (!user_signed_in?) %>
             <li><%= link_to 'Connexion', new_user_session_path %></li>
@@ -59,7 +69,7 @@
              <% else %>
 
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Mes commandes', root_path %></li>
                 <li><%= link_to 'Modifier mon profil', edit_user_registration_path %></li>
