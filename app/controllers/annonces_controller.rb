@@ -21,7 +21,7 @@ def create
 			end
 	end
 		@photos = @annonces.photos
-		redirect_to new_annonce_path(@annonce), notice: "Votre annonce a été ajoutée avec succès"
+		redirect_to users_path
 	end
 end
 
@@ -48,7 +48,7 @@ end
 
 
 def update
-	if @annonces.update(annonce_params)
+	if @annonces.update(annonces_params)
 		redirect_to @annonce, notice: "Modification enregistrée..." 
 	else 
 		render :edit

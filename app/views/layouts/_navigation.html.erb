@@ -2,6 +2,10 @@
 
 
 
+<!-- Navabar fixed-top bootstrapp'https://getbootstrap.com/docs/3.3/examples/navbar-fixed-top/' (Y.B) -->
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +31,16 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="/assets/js/application.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+ 
+
+
   </head>
 
   <body>
@@ -52,16 +59,6 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-
-     <li>
-     
-     <%= link_to new_annonce_path do %>
-     
-     <i class="fa fa-home fa-lg"></i> Devenez Prestataire
-     
-     <% end %>
-     
-     </li>
             <!-- Pour que 'inscritpion ne s'affiche pas si t'es connecter igo -->
             <% if (!user_signed_in?) %>
             <li><%= link_to 'Connexion', new_user_session_path %></li>
@@ -71,12 +68,12 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag avatar_url(current_user), class:"img-circle avatar-small" %> <%= current_user.fullname %><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><%= link_to 'Mes commandes', root_path %></li>
+                <li><%= link_to 'Mes annonces', annonces_path %></li>
                 <li><%= link_to 'Modifier mon profil', edit_user_registration_path %></li>
+                
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></li>
-               
-              </ul>
+               </ul>
             </li>
             <% end %>
           </ul>

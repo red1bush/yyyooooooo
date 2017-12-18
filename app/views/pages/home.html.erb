@@ -1,12 +1,56 @@
-<h2>Bienvue sur YouYoo</h2>
+<!doctype html>
+<html lang="en">
+  <head>
+ 
+  </head>
 
+  <body>
 
+    <main role="main">
 
-<% if user_signed_in? %>
-<%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
-<%= link_to 'Modifier mon profil', edit_user_registration_path %>
-<%= link_to 'Créer une annonce', new_annonce_path %>
-<% else %>
-<%= link_to 'Inscription ', new_user_registration_path %> 
-<%= link_to 'Connexion', new_user_session_path %>
-<% end %>
+      <section class="jumbotron text-center" style="background: #FF5A5F">
+        <div class="container">
+          <h1 class="jumbotron-heading"> YOUYOOO </h1>
+          <p class="lead text-muted">Votre partenaire pour des evenements reussi</p>
+          <p>
+            <% if user_signed_in? %>
+            <a href="#" class="btn btn-primary"<%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></a>
+            <a href="sign_up" class="btn btn-primary"<%= link_to 'Créer une annonce' %></a>
+            <% else %>
+            <a href="sign_in" class="btn btn-primary"<%= link_to 'Connexion' %></a>
+            <a href="sign_up" class="btn btn-primary"<%= link_to "Inscription"%></a>
+            <br>
+    <%= link_to "Connexion avec facebook", new_omniauth_callback_path, id: "sign_in", class:"btn btn-primary-fb" %>
+    <br><br>
+          </p>
+        </div>
+        <% end %>
+      </section>
+<div class="row">
+          <div class="col-lg-4">
+            <%= image_tag "lieu", width: 250, height: 140 %> 
+            <h2>Lieux</h2>
+            <p>Trouver en deux cliques LE lieu de vos rêves pour vos anniversaire, mariage ou reception et dans toute la france !.</p>
+            <p><a class="btn btn-secondary" href="annonce/;id" role="button">Trouver un lieu tout de suite! &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <%= image_tag "dj.jpg", width: 250, height: 140 %> 
+            <h2>Ambiance</h2>
+            <p>A la recherche d'un DJ ? D'un orchestre ? ou meme un clow !? pas de panique, en deux temps trois mouvemment vous pouvez bouquer nimporte qu'elle prestation pour une ambiance parfaite !</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Je choisis mon ambiance tout de suite ! &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <%= image_tag "traiteur.jpeg", width: 250, height: 140 %> 
+            <h2>Traiteur</h2>
+            <p>Grosse reception ou petite fete entre amis, menus ou hors d'oeuvre, trouver le traiteur qu'il vous faut sur YOUYOOO</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Je choisis un traiteur tout de suite ! &raquo;</a></p>
+       
+
+    </main>
+
+          <a href="#">Back to top</a>
+        </p>
+        
+      </div>
+
+  </body>
+</html>
